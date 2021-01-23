@@ -11,6 +11,11 @@ package Ejercicio6;
 
 public class StringUtil {
 
+    public static void main(String[] args) {
+        int i = indexOfN("John|Paul|George|Ringo", '|', 2);
+        System.out.println(i);
+    }
+
     /**
      *  Idem LPAD, pero agregando caracteres a la derecha
      * @param s cadena
@@ -77,6 +82,27 @@ public class StringUtil {
      */
     public static int indexOfN(String s, char c, int n){
 
-        return 0;
+        //String[] chars = s.split("");
+        char[] chars = s.toCharArray();
+        boolean eureka = false;
+        int i = 0;
+        int count = 0;
+        while(!eureka && i < s.length()){
+            if (chars[i] == c) {
+                count++;
+            }
+            if(count == n){
+                eureka = true;
+
+            } else {
+                i++;
+            }
+
+        }
+
+        if(eureka)
+            return i;
+
+        return -1;
     }
 }
